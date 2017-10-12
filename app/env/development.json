@@ -1,0 +1,10 @@
+{
+  "youtube":
+  {
+    "cmd":"C:\\youtube-dl"
+  },
+  "curl":
+  {
+    "timeout":20
+  }
+}

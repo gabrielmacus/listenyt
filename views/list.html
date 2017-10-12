@@ -1,0 +1,14 @@
+<ul>
+    <li data-ng-click="load(k,'audio')" data-ng-repeat="(k,item) in ytList">
+        <figure class="thumbnail">
+            <img data-ng-src="{{item.thumbnail.mq}}">
+        </figure>
+        <span class="title">{{item.title}}</span>
+        <span class="user">{{item.user}}</span>
+    </li>
+
+</ul>
+
+<footer>
+    <div class="audio-player" data-ng-include="'views/player.html'"></div>
+</footer>

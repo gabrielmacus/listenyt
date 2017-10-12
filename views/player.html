@@ -1,0 +1,9 @@
+<div class="player">
+    <audio data-ng-src="{{loaded.src}}" ></audio>
+    <div class="controls">
+        <span  data-ng-click="play()" class="play" data-ng-if="loaded.state != 'playing'"><i class="material-icons">&#xE037;</i></span>
+
+        <span  data-ng-click="pause()" class="pause" data-ng-if="loaded.state == 'playing'"><i class="material-icons">&#xE034;</i></span>
+
+    </div>
+</div>

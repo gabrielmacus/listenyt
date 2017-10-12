@@ -1,0 +1,17 @@
+{
+  "login.user":"Usuario",
+  "login.pass":"Contraseña",
+  "login.title":"Ingreso al sistema",
+  "login.accept":"Ingresar",
+  "db.error.invalidDatabase":"La base de datos seleccionada es inválida",
+  "db.error.reading":"Error al leer la base de datos",
+  "auth.error.invalidData":"Datos de autenticación inválidos",
+  "auth.error.noData":"No se recibieron datos de autenticación",
+  "sse.error.noData":"No se recibieron datos para enviar",
+
+  "youtube.error.idNotSpecified":"No se especificó un id de video",
+  "youtube.error.linkNotFetched":"No se pudo recuperar el enlace al video",
+  "youtube.error.queryDataNotSpecified":"No se especificó un parámetro de búsqueda",
+  "youtube.error.query":"Error al buscar el video",
+  "youtube.search":"Buscá un tema"
+}
