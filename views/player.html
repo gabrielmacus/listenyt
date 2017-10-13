@@ -1,9 +1,22 @@
+
 <div class="player">
-    <audio data-ng-src="{{loaded.src}}" ></audio>
+    <figure class="thumbnail">
+        <img data-ng-src="{{loaded.thumbnail.mq}}">
+        <figcaption class="info">
+            <span class="title">{{loaded.title}}</span>
+            <span class="time">
+                <span class="total">{{loaded.duration}}</span>
+            </span>
+        </figcaption>
+    </figure>
     <div class="controls">
+        <span data-ng-click="prev()" class="prev"><i class="material-icons">&#xE045;</i></span>
+
         <span  data-ng-click="play()" class="play" data-ng-if="loaded.state != 'playing'"><i class="material-icons">&#xE037;</i></span>
 
         <span  data-ng-click="pause()" class="pause" data-ng-if="loaded.state == 'playing'"><i class="material-icons">&#xE034;</i></span>
+
+        <span data-ng-click="next()" class="next"><i class="material-icons">&#xE044;</i></span>
 
     </div>
 </div>

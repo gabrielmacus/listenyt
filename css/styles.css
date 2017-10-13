@@ -86,7 +86,7 @@
         font-family: 'Roboto', sans-serif;
 
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         display: flex;
 
     }
@@ -97,6 +97,7 @@
         height: 100%;
         display: flex;
         flex-wrap: wrap;
+
     }
 
     .main-search{
@@ -122,7 +123,9 @@
     {  margin-top: 15px;
         outline: none;
         width: 100%;
-        padding: 5px;
+        padding: 8px;
+        border: 0;
+        background-color: #EEEEEE;
         font-size: 18px;
     }
     .form-block button
@@ -146,9 +149,11 @@
         align-items: center;
         flex-wrap: wrap;
         position: relative;
-        height: 25vh;
+        height: 20vh;
 
     }
+
+
 
     .yt-list li figure{
         width: 30%;
@@ -169,7 +174,9 @@
     }
     .yt-list li .title
     {
-        width: 70%;
+        width: 50%;
+        display: block;
+        margin: auto;
     }
     .yt-list li .title p
     {
@@ -177,4 +184,106 @@
         margin: auto;
         line-height: 25px;
         text-align: center;
+    }
+
+    .yt-list li:last-child
+    {
+        margin-bottom: 70px;
+    }
+    .audio-player
+    {
+        margin: auto;
+        display: flex;
+        height: 70px;
+        align-items: center;
+        position: relative;
+
+    }
+
+    .audio-player .player
+    {
+        float: right;
+        width: 95%;
+        margin: auto;
+    }
+    .audio-player .controls
+    {
+        float: right;
+    }
+    .audio-player .thumbnail
+    {
+        float: left;
+        align-items: center;
+        display: flex;
+        width: 20%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 100%;
+    }
+    li .playing{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #00C853;
+    }
+    li .thumbnail{
+        display: flex;
+        position: relative;
+        align-items: center;
+    }
+    .audio-player .thumbnail img
+    {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .audio-player .thumbnail .info
+    {
+        line-height: 20px;
+        position: absolute;
+        margin: auto;
+        font-size: 13px;
+        left: 120%;
+        width: 200%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .audio-player .thumbnail .title
+    {
+
+        white-space: pre;
+    }
+    .audio-player .thumbnail .time
+    {
+        color: white;
+        display: block;
+    }
+
+    .controls i{
+        font-size: 30px;
+    }
+    footer
+    {
+
+        color: #00C853;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        background: #212121;
+        align-items: center;
+    }
+    *
+    {
+        font-family: 'Roboto',sans-serif;
+    }
+    .loader-svg
+    {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+    .loader-svg svg path, .loader-svg svg rect
+    {
+        fill:#00E676;
     }

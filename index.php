@@ -12,8 +12,10 @@ include "app/autoload.php";
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/jquery-param.min.js"></script>
+    <script src="js/angular-animate.js"></script>
     <script src="js/angular-websocket.min.js"></script>
     <link href="css/roboto/stylesheet.css" rel="stylesheet">
+    <link href="css/ng-animation.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
 </head>
@@ -26,7 +28,7 @@ include "app/autoload.php";
         }
 
 
-        var app = angular.module('app', ['ngRoute','ngWebSocket']);
+        var app = angular.module('app', ['ngRoute','ngWebSocket','ngAnimate']);
 
         app.controller('mainController', function($rootScope,$http,$location) {
 
@@ -77,7 +79,7 @@ include "app/autoload.php";
     <script src="js/controllers/listController.js"></script>
     <section class="animated main-container" data-ng-view>
     </section>
-
+    <audio style="opacity: 0;position: absolute" data-ng-src="{{loaded.src}}" ></audio>
 </body>
 </html>
 

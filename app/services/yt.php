@@ -5,9 +5,11 @@
  * Date: 12/10/2017
  * Time: 11:25 AM
  */
+
+use PHPHtmlParser\Dom;
 class YoutubeDLService
 {
-   
+   //https://gimmeproxy.com/#how
     static function getLink($id=false)
     {
         if(empty($id))
@@ -15,8 +17,11 @@ class YoutubeDLService
             throw new Exception("youtube.error.idNotSpecified",400);
         }
 
+        $proxy= CurlService::get("https://gimmeproxy.com/api/getProxy");
 
-        $proxy ="https://216.56.48.118:9000/";
+        $proxy = json_decode($proxy,true);
+
+        $proxy ="{$proxy["protocol"]}://{$proxy["ip"]}:{$proxy["port"]}/";
 
         $cmd  = "{$_ENV['youtube']['cmd']} -g {$id} --proxy {$proxy}";
 
@@ -47,11 +52,15 @@ class YoutubeDLService
             $p = 1;
         }
 
+        $q= urlencode($q);
+
         $url ="https://www.youtube.com/results?search_query={$q}&p={$p}";
 
 
         $data = CurlService::get($url);
-        $html = str_get_html($data);
+
+        $html = hQuery::fromHTML($data);
+
 
         $result = [];
 
@@ -68,18 +77,19 @@ class YoutubeDLService
             if(count($id)>1)
             {
                 $id =$id[1];
-                $result[$id]["title"]=$v->find(".yt-lockup-title a",0)->innertext;
+                $result[$id]["title"]=$v->find(".yt-lockup-title a")->text();
                 $result[$id]["thumbnail"]["mq"] = "http://img.youtube.com/vi/{$id}/mqdefault.jpg";
                 $result[$id]["thumbnail"]["hq"] = "https://img.youtube.com/vi/{$id}/maxresdefault.jpg";
-                $result[$id]["duration"] =$v->find(".yt-thumb-simple .video-time",0)->innertext;
-                $result[$id]["user"] = $v->find(".yt-lockup-byline a",0)->innertext;
-                $result[$id]["userLink"] = $v->find(".yt-lockup-byline a",0)->href;
+                $result[$id]["duration"] =$v->find(".yt-thumb-simple .video-time")->text();
+                $result[$id]["user"] = $v->find(".yt-lockup-byline a")->text();
+                $result[$id]["userLink"] = $v->find(".yt-lockup-byline a",0)->attr("href");
 
             }
         }
 
 
         return $result;
+      
 
 
     }

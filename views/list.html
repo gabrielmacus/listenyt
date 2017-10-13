@@ -1,14 +1,21 @@
 <ul class="yt-list">
     <li data-ng-click="load(k,'audio')" data-ng-repeat="(k,item) in ytList">
         <figure class="thumbnail">
-            <img data-ng-src="{{item.thumbnail.mq}}">
+             <img data-ng-src="{{item.thumbnail.mq}}">
+
+            <span  data-ng-if="item.loading"  class="loader-svg" data-ng-include="'views/loader.html'"></span>
         </figure>
+        <span class="playing" data-ng-if="loaded.id == k"><i class="material-icons">&#xE039;</i></span>
+
         <span class="title"><p>{{item.title}}</p></span>
+        <!--
         <span class="user">{{item.user}}</span>
+        -->
+
     </li>
 
 </ul>
 
-<footer>
+<footer  data-ng-if="loaded.ready" class="slide-top">
     <div class="audio-player" data-ng-include="'views/player.html'"></div>
 </footer>

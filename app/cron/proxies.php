@@ -11,3 +11,4 @@ include "../autoload.php";
 $data = CurlService::get('https://free-proxy-list.net/');
 
 echo($data);
+new DOm

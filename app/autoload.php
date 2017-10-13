@@ -8,6 +8,8 @@
 
 define('BASE_PATH',dirname(dirname(__FILE__)));
 
+include (BASE_PATH."/vendor/autoload.php");
+
 if(empty($env) || $env = "DEV")
 {
     $env = file_get_contents(BASE_PATH."/app/env/development.json");

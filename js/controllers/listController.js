@@ -13,6 +13,8 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
 
        };
 
+        $rootScope.ytList[id].loading = true;
+
         $http.get('app/api/youtube.php',{
                 params:data
             })
@@ -20,7 +22,7 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
 
                 console.log(res);
                 $rootScope.ytList[id]['src'] = res.data.src;
-
+                    $rootScope.ytList[id].loading = false;
                     if(playOnLoad)
                     {
                         $rootScope.play(id);
@@ -37,6 +39,7 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
         if(id)
         {
             $rootScope.loaded = $rootScope.ytList[id];
+            $rootScope.loaded.id = id;
         }
         if(!$rootScope.loaded.ready)
         {
@@ -47,6 +50,12 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
                 setTimeout(function () {
                     $rootScope.$apply();
                 })
+            };
+
+
+            audioElement.onended = function() {
+
+                $rootScope.next();
             };
         }
        else
@@ -65,6 +74,33 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
         $rootScope.loaded.state = 'paused';
     }
 
+    $rootScope.next=function () {
+      var keys =   Object.keys($rootScope.ytList);
 
+       var idx= keys.indexOf($rootScope.loaded.id);
+
+        var nextIdx =idx+1;
+        if(keys.length > nextIdx)
+        {
+           $rootScope.load(keys[nextIdx],true);
+        }
+
+
+
+    }
+    $rootScope.prev=function () {
+        var keys =   Object.keys($rootScope.ytList);
+
+        var idx= keys.indexOf($rootScope.loaded.id);
+
+        var prevIdx =idx-1;
+        if(prevIdx > -1)
+        {
+            $rootScope.load(keys[prevIdx],true);
+        }
+
+
+
+    }
 
 });
