@@ -75,7 +75,7 @@ include "app/autoload.php";
     </script>
     <script src="js/controllers/homeController.js"></script>
     <script src="js/controllers/listController.js"></script>
-    <section  data-ng-style='containerStyle' class="animated main-container" data-ng-view>
+    <section class="animated main-container" data-ng-view>
     </section>
 
 </body>

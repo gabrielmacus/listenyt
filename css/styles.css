@@ -90,3 +90,91 @@
         display: flex;
 
     }
+
+    .main-container
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-search{
+        margin: auto;
+    }
+    .main-search form{
+        width: 80%;
+        margin: auto;
+    }
+    .form-block
+    {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .form-block label
+    {
+        margin-top: 15px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .form-block input
+    {  margin-top: 15px;
+        outline: none;
+        width: 100%;
+        padding: 5px;
+        font-size: 18px;
+    }
+    .form-block button
+    {  margin-top: 15px;
+        border: 0;
+        padding: 5px;
+        background-color: #00C853;
+        width: 100%;
+    }
+
+    .yt-list
+    {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .yt-list li{
+        border-bottom: 1px solid #E0E0E0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        height: 25vh;
+
+    }
+
+    .yt-list li figure{
+        width: 30%;
+        height: 100%;
+    }
+    .yt-list li figure img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .yt-list li .user
+    {
+        position: absolute;
+        top: 10px;
+        background: #212121;
+        padding: 8px;
+        color: #00C853;
+    }
+    .yt-list li .title
+    {
+        width: 70%;
+    }
+    .yt-list li .title p
+    {
+        width: 100%;
+        margin: auto;
+        line-height: 25px;
+        text-align: center;
+    }
