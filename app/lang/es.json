@@ -13,5 +13,13 @@
   "youtube.error.linkNotFetched":"No se pudo recuperar el enlace al video",
   "youtube.error.queryDataNotSpecified":"No se especificó un parámetro de búsqueda",
   "youtube.error.query":"Error al buscar el video",
-  "youtube.search":"Buscá un tema"
+  "youtube.search":"Buscá un tema",
+
+
+
+  "video.error.idNotSpecified":"No se especificó un id de video",
+  "video.error.linkNotFetched":"No se pudo recuperar el enlace al video",
+
+
+  "error":"Error desconocido"
 }

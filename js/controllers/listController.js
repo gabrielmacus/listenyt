@@ -52,7 +52,13 @@ app.controller('listController', function($rootScope,$interval,$location,$websoc
                 })
             };
 
+            audioElement.ontimeupdate=function (e) {
 
+                $rootScope.loaded.progress= (audioElement.played.end(0) *100) /  audioElement.duration;
+
+                scope.$apply();
+
+            }
             audioElement.onended = function() {
 
                 $rootScope.next();

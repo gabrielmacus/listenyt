@@ -287,3 +287,50 @@
     {
         fill:#00E676;
     }
+    .progress-wrapper
+    {
+
+        display: block;
+        height: 5px;
+        background: #E0E0E0;
+        width: 100%;
+    }
+    .progress-bar
+    {
+        width: 40%;
+        height: 100%;
+        background: #00C853;
+        display: block;
+    }
+    .messages
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .messages .messages-list li
+    {
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+    .messages .messages-list li.info
+    {
+        background: #1976D2;
+    }
+    .messages .messages-list li.error
+    {
+        background: #F44336;
+    }
+
+    .messages .messages-list li.warning
+    {
+        color: black;
+        background: #FFEB3B;
+    }
+    .messages .messages-list li.success
+    {
+        background: #4CAF50;
+    }

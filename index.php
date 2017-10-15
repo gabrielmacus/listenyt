@@ -77,6 +77,7 @@ include "app/autoload.php";
     </script>
     <script src="js/controllers/homeController.js"></script>
     <script src="js/controllers/listController.js"></script>
+    <div class="messages" data-ng-include="'views/messages.html'"></div>
     <section class="animated main-container" data-ng-view>
     </section>
     <audio style="opacity: 0;position: absolute" data-ng-src="{{loaded.src}}" ></audio>

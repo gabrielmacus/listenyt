@@ -6,31 +6,47 @@
  * Time: 10:52 AM
  */
 
-include ("../autoload.php");
-
-$act = empty($_GET['act'])?"":$_GET['act'];
-
-$res = [];
-switch ($act)
+try
 {
-    case 'link':
+    include ("../autoload.php");
 
-        $id = (!empty($_GET["id"]))?$_GET["id"]:false;
+    $act = empty($_GET['act'])?"":$_GET['act'];
 
-        $yt =YoutubeDLService::getLink($id);
+    $res = [];
+    switch ($act)
+    {
+        case 'link':
 
-        $res = ['src'=>end($yt)];
+            $id = (!empty($_GET["id"]))?$_GET["id"]:false;
 
-        break;
-    case 'list':
-        
-        $q = (!empty($_GET["q"]))?$_GET["q"]:false;
-        $p = (!empty($_GET["p"]))?$_GET["p"]:false;
+            $yt =YoutubeDLService::getLink($id);
 
-        $res= YoutubeDLService::find($q,$p);
-        
+            $res = ['src'=>end($yt)];
 
-        break;
+            break;
+        case 'list':
+
+            $q = (!empty($_GET["q"]))?$_GET["q"]:false;
+            $p = (!empty($_GET["p"]))?$_GET["p"]:false;
+
+            $res= YoutubeDLService::find($q,$p);
+
+
+            break;
+    }
+
+    echo json_encode($res);
 }
-
-echo json_encode($res);
+catch (Exception $e)
+{
+    if(!empty($_LANG[$e->getMessage()]))
+    {
+        http_response_code ($e->getCode());
+        echo $_LANG[$e->getMessage()];
+    }
+    else
+    {
+        http_response_code (500);
+        echo  $_LANG["error"];
+    }
+}

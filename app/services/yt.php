@@ -6,18 +6,23 @@
  * Time: 11:25 AM
  */
 
-use PHPHtmlParser\Dom;
 class YoutubeDLService
 {
    //https://gimmeproxy.com/#how
+    /**
+     * @deprecated Now you should user the function from VideoService class
+     * @param bool $id
+     * @return array
+     * @throws Exception
+     */
     static function getLink($id=false)
     {
         if(empty($id))
         {
-            throw new Exception("youtube.error.idNotSpecified",400);
+            throw new Exception("video.error.idNotSpecified",400);
         }
 
-        $proxy= CurlService::get("https://gimmeproxy.com/api/getProxy");
+        $proxy= CurlService::get("https://gimmeproxy.com/api/getProxy?protocol=socks4&country=AR");
 
         $proxy = json_decode($proxy,true);
 
@@ -33,7 +38,7 @@ class YoutubeDLService
 
         if(!count($otp))
         {
-            throw new \Exception("youtube.error.linkNotFetched",500);
+            throw new \Exception("video.error.linkNotFetched",500);
         }
 
         return $otp;
@@ -82,7 +87,7 @@ class YoutubeDLService
                 $result[$id]["thumbnail"]["hq"] = "https://img.youtube.com/vi/{$id}/maxresdefault.jpg";
                 $result[$id]["duration"] =$v->find(".yt-thumb-simple .video-time")->text();
                 $result[$id]["user"] = $v->find(".yt-lockup-byline a")->text();
-                $result[$id]["userLink"] = $v->find(".yt-lockup-byline a",0)->attr("href");
+                $result[$id]["userLink"] = $v->find(".yt-lockup-byline a")->attr("href");
 
             }
         }

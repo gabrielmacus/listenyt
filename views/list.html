@@ -17,5 +17,7 @@
 </ul>
 
 <footer  data-ng-if="loaded.ready" class="slide-top">
+
+    <span class="progress-wrapper" ><span class="progress-bar" data-ng-style="{width: loaded.progress+'%'}"></span></span>
     <div class="audio-player" data-ng-include="'views/player.html'"></div>
 </footer>
